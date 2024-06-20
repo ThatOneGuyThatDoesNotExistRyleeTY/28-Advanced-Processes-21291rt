@@ -1,138 +1,89 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html>
-
-<head>
-    <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
-</head>
-
-<body>
-    <a-scene>
-
-        <a-sky color='cyan'>
-        </a-sky>
-        <a-plane color='green' 
-            position='0 0 0' 
-            rotation='-90 0 0' 
-            width='100' 
-            height='100'>
-        </a-plane>
-
-        <a-gltf-model src='pokemon_pokedex.glb' 
-            scale="2 2 2" 
-            position='0 5 -15'>
-        </a-gltf-model>
-
-        <a-box color='grey' 
-            position='0 2.7 -40.2' 
-            width='50' 
-            height='0.2' 
-            depth=50>
-        </a-box>
-        
-        <a-box color='grey' 
-            position='25 15.2 -40.2' 
-            rotation='-90 0 0' 
-            width='0.2' 
-            height='50' 
-            depth=25>
-        </a-box>
-        
-        <a-box color='grey' 
-            position='0 15.2 -65' 
-            rotation='0 0 0' 
-            width='50' 
-            height='25' 
-            depth=0.2>
-        </a-box>
-
-        <a-box color='grey' 
-            position='-25 15.2 -40.2' 
-            rotation='90 0 0' 
-            width='0.2' 
-            height='50' 
-            depth=25>
-        </a-box>
-
-        <a-box color='grey' 
-            position='-25 15.2 -40.2' 
-            rotation='90 0 0' 
-            width='0.2' 
-            height='50' 
-            depth=25>
-        </a-box>
-
-        <a-box color='grey' 
-            position='0 15.2 -15.2' 
-            width='50' 
-            height='25' 
-            depth=0.2>
-        </a-box>
-
-        <a-gltf-model src='mossy_wooden_stairs.glb' 
-            scale="0.5 0.57 0.5" 
-            position='2 0.1 -11.8'>
-        </a-gltf-model>
-
-        <a-gltf-model src='pedestal2.glb'
-            scale='0.2 0.2 0.2'
-            position='-22 2.6 -18'>
-        </a-gltf-model>
-
-        <a-gltf-model src='pedestal2.glb'
-            scale='0.2 0.2 0.2'
-            position='-22 2.6 -22'>
-        </a-gltf-model>
-
-        <a-gltf-model src='pedestal2.glb'
-            scale='0.2 0.2 0.2'
-            position='-22 2.6 -26'>
-        </a-gltf-model>
-
-        <a-gltf-model src='pedestal2.glb'
-            scale='0.2 0.2 0.2'
-            position='-22 2.6 -30'>
-        </a-gltf-model>
-
-        <a-gltf-model src='pedestal2.glb'
-            scale='0.2 0.2 0.2'
-            position='-22 2.6 -34'>
-        </a-gltf-model>
-        
-        <a-gltf-model src='pedestal2.glb'
-            scale='0.2 0.2 0.2'
-            position='-22 2.6 -38'>
-        </a-gltf-model>
-
-        <a-gltf-model src='pedestal2.glb'
-            scale='0.2 0.2 0.2'
-            position='-22 2.6 -42'>
-        </a-gltf-model>
-
-        <a-gltf-model src='pedestal2.glb'
-            scale='0.2 0.2 0.2'
-            position='-22 2.6 -46'>
-        </a-gltf-model>
-
-        <a-gltf-model src='pedestal2.glb'
-            scale='0.2 0.2 0.2'
-            position='-22 2.6 -50'>
-        </a-gltf-model>
-
-        <a-gltf-model src='pedestal2.glb'
-            scale='0.2 0.2 0.2'
-            position='-22 2.6 -54'>
-        </a-gltf-model>
-
-        <a-gltf-model src='pedestal2.glb'
-            scale='0.2 0.2 0.2'
-            position='-22 2.6 -58'>
-        </a-gltf-model>
-
-        <a-gltf-model src='pedestal2.glb'
-            scale='0.2 0.2 0.2'
-            position='-22 2.6 -62'>
-        </a-gltf-model>
-    </a-scene>
-</body>
-
+  <head>
+    <title>Pokemon Museum</title>
+    <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+    <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/v2.1.1/dist/aframe-extras.loaders.min.js"></script>
+  </head>
+  <body>
+    <a-scene physics="gravity: -9.8;restitution: 0.1" inspector-plugin-recast>
+      <!-- Light -->
+      <a-entity>
+        <a-light id='dir' type='directional' position='10 36 -10' scale='0 0 0' color='white'></a-light>
+        <a-light id='amb' type='ambient' intensity='0.5' color='white'></a-light>
+      </a-entity>
+      <!-- Mesh -->
+      
+        <a-entity id="rig" position="0 0 0" movement-controls="constrainToNavMesh: true;speed:0.1;">
+          <a-entity camera id="camera" position="0 1.6 0" look-controls extended-wasd-controls></a-entity>
+        </a-entity>saw
+        <a-gltf-model src="navmesh.gltf" nav-mesh visible="false" position="0 -0.wsa1 0"></a-gltf-model>
+        <!-- Enviroment -->
+        <a-entity>
+          <a-sky src="BLUE-GRADIENT.jpg"></a-sky>
+          <a-gltf-model src=' pokemon_pokedex.glb' scale="2 2 2" position='0 5 -15'></a-gltf-model>
+          <a-gltf-model src='mossy_wooden_stairs.glb' scale="0.5 0.57 0.5" position='2 0.1 -11.8'></a-gltf-model>
+          <a-plane color='green' position='0 0 0' rotation='-90 0 0' width='100' height='100'></a-plane>
+        </a-entity>
+        <!-- Museum -->
+        <a-entity>
+          <a-box color='grey' position='0 2.7 -40.2' width='50' height='0.2' depth=50></a-box>
+          <a-box color='grey' position='25 15.2 -40.2' rotation='-90 0 0' width='0.2' height='50' depth=25></a-box>
+          <a-box color='grey' position='0 15.2 -65' rotation='0 0 0' width='50' height='25' depth=0.2></a-box>
+          <a-box color='grey' position='-25 15.2 -40.2' rotation='90 0 0' width='0.2' height='50' depth=25></a-box>
+          <a-box color='grey' position='-25 15.2 -40.2' rotation='90 0 0' width='0.2' height='50' depth=25></a-box>
+          <a-box color='grey' position='-13.704 15.200 -15.2' width='25' height='25' depth=0.2></a-box>
+          <a-box color='grey' position='15.329 15.200 -15.2' width='20' height='25' depth=0.2></a-box>
+          <a-box color='grey' position='1.057 18.037 -15.2' width='10' height='19' depth=0.2></a-box>
+          <a-box color='grey' position='3.951 15.2 -60.084' rotation='-90 0 0' width='0.2' height='10' depth=25></a-box>
+          <a-box color='grey' position='-3.951 15.2 -60.084' rotation='-90 0 0' width='0.2' height='10' depth=25></a-box>
+        </a-entity>
+        <!-- Pedestals left -->
+        <a-entity>
+          <a-gltf-model src='pedestal2.glb' scale='0.2 0.2 0.2' position='-22 2.6 -18'></a-gltf-model>
+          <a-gltf-model src='pedestal2.glb' scale='0.2 0.2 0.2' position='-22 2.6 -22'></a-gltf-model>
+          <a-gltf-model src='pedestal2.glb' scale='0.2 0.2 0.2' position='-22 2.6 -26'></a-gltf-model>
+          <a-gltf-model src='pedestal2.glb' scale='0.2 0.2 0.2' position='-22 2.6 -30'></a-gltf-model>
+          <a-gltf-model src='pedestal2.glb' scale='0.2 0.2 0.2' position='-22 2.6 -34'></a-gltf-model>
+          <a-gltf-model src='pedestal2.glb' scale='0.2 0.2 0.2' position='-22 2.6 -38'></a-gltf-model>
+          <a-gltf-model src='pedestal2.glb' scale='0.2 0.2 0.2' position='-22 2.6 -42'></a-gltf-model>
+          <a-gltf-model src='pedestal2.glb' scale='0.2 0.2 0.2' position='-22 2.6 -46'></a-gltf-model>
+          <a-gltf-model src='pedestal2.glb' scale='0.2 0.2 0.2' position='-22 2.6 -50'></a-gltf-model>
+          <a-gltf-model src='pedestal2.glb' scale='0.2 0.2 0.2' position='-22 2.6 -54'></a-gltf-model>
+          <a-gltf-model src='pedestal2.glb' scale='0.2 0.2 0.2' position='-22 2.6 -58'></a-gltf-model>
+          <a-gltf-model src='pedestal2.glb' scale='0.2 0.2 0.2' position='-22 2.6 -62'></a-gltf-model>
+        </a-entity>
+        <!-- Pedestals left -->
+        <a-entity position='45 0 0'>
+          <a-gltf-model src='pedestal2.glb' scale='0.2 0.2 0.2' position='-22 2.6 -18'></a-gltf-model>
+          <a-gltf-model src='pedestal2.glb' scale='0.2 0.2 0.2' position='-22 2.6 -22'></a-gltf-model>
+          <a-gltf-model src='pedestal2.glb' scale='0.2 0.2 0.2' position='-22 2.6 -26'></a-gltf-model>
+          <a-gltf-model src='pedestal2.glb' scale='0.2 0.2 0.2' position='-22 2.6 -30'></a-gltf-model>
+          <a-gltf-model src='pedestal2.glb' scale='0.2 0.2 0.2' position='-22 2.6 -34'></a-gltf-model>
+          <a-gltf-model src='pedestal2.glb' scale='0.2 0.2 0.2' position='-22 2.6 -38'></a-gltf-model>
+          <a-gltf-model src='pedestal2.glb' scale='0.2 0.2 0.2' position='-22 2.6 -42'></a-gltf-model>
+          <a-gltf-model src='pedestal2.glb' scale='0.2 0.2 0.2' position='-22 2.6 -46'></a-gltf-model>
+          <a-gltf-model src='pedestal2.glb' scale='0.2 0.2 0.2' position='-22 2.6 -50'></a-gltf-model>
+          <a-gltf-model src='pedestal2.glb' scale='0.2 0.2 0.2' position='-22 2.6 -54'></a-gltf-model>
+          <a-gltf-model src='pedestal2.glb' scale='0.2 0.2 0.2' position='-22 2.6 -58'></a-gltf-model>
+          <a-gltf-model src='pedestal2.glb' scale='0.2 0.2 0.2' position='-22 2.6 -62'></a-gltf-model>
+        </a-entity>
+        <!-- Big Pedestal -->
+        <a-gltf-model src='pedestal2.glb' scale='0.6 0.6 0.6' position='0 2 -62'></a-gltf-model>
+        <!-- pokemon models -->
+        <a-entity>
+          <a-gltf-model src="pikachu.glb" position="0 9.0336 -62.07911" scale="5 5 5" animation-mixer="clip: Dance"></a-gltf-model>
+          <a-gltf-model src="bulbasaur.glb" position="-22.06592 4.98442 -17.97185" scale="0.3 0.3 0.3" rotation="0 90 0"></a-gltf-model>
+            <a-gltf-model src="charmander.glb" position="-22.02561 6.33335 -21.97529" scale="0.8 0.8 0.8" rotation="0 90 0"></a-gltf-model>
+            <a-gltf-model src="squirtle.glb" position="-22.23022 4.90491 -25.89543" scale="0.04 0.04 0.04" rotation="0 90 0"></a-gltf-model>
+            <a-gltf-model src="greninja.glb" position="-21.37573 5.71817 -30.08147" scale="10 10 10" rotation="0 71.68389566440756 0"></a-gltf-model>
+            <a-gltf-model src="aegislash.glb" position="-22.05943 6.15487 -34.13598" scale="0.2 0.2 0.2" rotation="0 90 0"></a-gltf-model>
+            <a-gltf-model src="sobble.glb" position="-21.99305 4.87816 -38.02054" scale="1 1 1" rotation="0 90 0"></a-gltf-model>
+            <a-gltf-model src="arceus.glb" position="0 0 21.68832" scale="1 1 1" rotation="0 180 0"></a-gltf-model>
+            <a-gltf-model src="arceus.glb" position="0 0 -5" scale="1 1 1"></a-gltf-model>
+        </a-entity>
+      </a-scene>
+  </body>
 </html>
